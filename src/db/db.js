@@ -66,7 +66,6 @@ class Db {
     }
     static async updateMovieData(model, userId, movieId, movieData) {
       try {
-        // const updateMovie = await model.findOneAndUpdate({ ...data })
         const filter = { _id: movieId, userId }
         const updatedMovie = await model.findOneAndUpdate(filter, movieData, { new: true })
         return updatedMovie
