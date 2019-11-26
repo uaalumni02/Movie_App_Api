@@ -40,6 +40,15 @@ class Db {
         throw error
       }
     }
+    static async addMovie(model, data) {
+      try {
+        const newMovie = await model({ ...data })
+        return newMovie.save();
+      } catch (error) {
+        throw error;
+      }
+    }
   }
+  
   
   export default Db;
