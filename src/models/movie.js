@@ -27,6 +27,11 @@ const MovieSchema = Schema({
         type: String,
         required: true,
     },
+    userId:
+    {
+        type: String,
+        required: true,
+    },
     __v: {
         type: Number,
         select: false

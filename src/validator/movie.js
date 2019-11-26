@@ -1,5 +1,5 @@
 const Joi = require('@hapi/joi');
-
+Joi.objectId = require('joi-objectid')(Joi)
 
 const schema = Joi.object({
     name: Joi.string().regex(/^([A-Za-z]+[,.]?[ ]?|[A-Za-z]+['-]?)+$/)
@@ -15,6 +15,7 @@ const schema = Joi.object({
     directors: Joi.string().regex(/^([A-Za-z]+[,.]?[ ]?|[A-Za-z]+['-]?)+$/)
         .min(3)
         .max(30),
+    userId: Joi.objectId(),
 })
 
 export default schema
