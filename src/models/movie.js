@@ -19,7 +19,8 @@ const MovieSchema = Schema({
     release:
     {
         type: String,
-        required: true,
+        required: [true, 'Please enter valid year'],
+        validate: [validate.isValidYear, 'Please enter valid year'],
     },
     directors:
     {
