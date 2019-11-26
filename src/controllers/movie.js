@@ -23,6 +23,15 @@ class MovieData {
       return Response.responseServerError(res);
     }
   }
+  static async getAllMovies(req, res) {
+    const { userId } = req.params;
+    try {
+        const getAllMoviesByUser = await Db.getMovies(Movie, userId)
+        return Response.responseOk(res, getAllMoviesByUser )
+    } catch (error) {
+        return Response.responseNotFound(res)
+    }
+}
 }
 
 export default MovieData;

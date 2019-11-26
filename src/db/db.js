@@ -48,7 +48,16 @@ class Db {
         throw error;
       }
     }
+    static async getMovies(model, userId) {
+      try {
+        const movies = await model.find({userId})
+        return movies
+      } catch (error) {
+        throw error;
+      }
+    }
   }
+  
   
   
   export default Db;
