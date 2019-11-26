@@ -26,12 +26,22 @@ class MovieData {
   static async getAllMovies(req, res) {
     const { userId } = req.params;
     try {
-        const getAllMoviesByUser = await Db.getMovies(Movie, userId)
-        return Response.responseOk(res, getAllMoviesByUser )
+      const getAllMoviesByUser = await Db.getMovies(Movie, userId);
+      return Response.responseOk(res, getAllMoviesByUser);
     } catch (error) {
-        return Response.responseNotFound(res)
+      return Response.responseNotFound(res);
     }
-}
+  }
+  static async deleteMovie(req, res) {
+    const { id } = req.params;
+    console.log(id)
+    try {
+      const movieToDelete = await Db.removeMovie(Movie, id);
+      return Response.responseOk(res, movieToDelete);
+    } catch (error) {
+      return Response.responseServerError(res);
+    }
+  }
 }
 
 export default MovieData;

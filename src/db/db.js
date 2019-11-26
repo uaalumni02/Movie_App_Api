@@ -56,6 +56,14 @@ class Db {
         throw error;
       }
     }
+    static async removeMovie(model, id) {
+      try {
+        const deleteMovie = await model.findOneAndDelete({ _id: id })
+        return {}
+      } catch (error) {
+        throw error
+      }
+    }
   }
   
   

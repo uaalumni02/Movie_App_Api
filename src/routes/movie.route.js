@@ -9,8 +9,12 @@ const router = express.Router();
 router.route('/')
   .post(checkAuth, movieController.addMovieData)
 
+  router.route('/:id')
+  .delete(checkAuth, movieController.deleteMovie)
+
   router.route('/:userId')
   .get(checkAuth, movieController.getAllMovies)
+
 
 
 export default router;
