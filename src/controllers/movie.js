@@ -42,12 +42,19 @@ class MovieData {
     }
   }
   static async updateMovie(req, res) {
-    const { name, rating, release, directors } = req.body,
-      updateMovie = { name, rating, release, directors };
+    const accessToken = req.get("Authorization");
+    const jwtToken = accessToken.split(" ")[1];
+    
+    const userId = jwt.verify(jwtToken, JWT_KEY).userId;
+    const movieId = req.params.id;
+    const movieData = { ...req.body };
+
+    const { name, rating, release, directors  } = req.body;
+    const updateMovie = { name, rating, release, directors };
     try {
       const result = await validator.validateAsync(updateMovie);
       if (!result.error) {
-        const movieToUpdate = await Db.updateMovieData(Movie, updateMovie);
+        const movieToUpdate = await Db.updateMovieData(Movie, userId, movieId, movieData);
         return Response.responseOk(res, movieToUpdate);
       }
     } catch (error) {
