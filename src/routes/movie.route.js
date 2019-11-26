@@ -11,6 +11,7 @@ router.route('/')
 
   router.route('/:id')
   .delete(checkAuth, movieController.deleteMovie)
+  .patch(checkAuth, movieController.updateMovie)
 
   router.route('/:userId')
   .get(checkAuth, movieController.getAllMovies)

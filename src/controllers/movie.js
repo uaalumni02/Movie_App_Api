@@ -34,10 +34,22 @@ class MovieData {
   }
   static async deleteMovie(req, res) {
     const { id } = req.params;
-    console.log(id)
     try {
       const movieToDelete = await Db.removeMovie(Movie, id);
       return Response.responseOk(res, movieToDelete);
+    } catch (error) {
+      return Response.responseServerError(res);
+    }
+  }
+  static async updateMovie(req, res) {
+    const { name, rating, release, directors } = req.body,
+      updateMovie = { name, rating, release, directors };
+    try {
+      const result = await validator.validateAsync(updateMovie);
+      if (!result.error) {
+        const movieToUpdate = await Db.updateMovieData(Movie, updateMovie);
+        return Response.responseOk(res, movieToUpdate);
+      }
     } catch (error) {
       return Response.responseServerError(res);
     }

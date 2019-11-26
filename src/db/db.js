@@ -64,6 +64,14 @@ class Db {
         throw error
       }
     }
+    static async updateMovieData(model, data) {
+      try {
+        const updateMovie = await model.findOneAndUpdate({ ...data })
+        return updateMovie
+      } catch (error) {
+        throw error
+      }
+    }
   }
   
   
