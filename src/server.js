@@ -13,6 +13,8 @@ const port = process.env.PORT || 3000;
 
 const router = express.Router();
 
+//import routes
+import userRoutes from './routes/user.route';
 
 app.use(cors());
 app.use(express.json());
@@ -37,6 +39,8 @@ if (process.env.NODE_ENV == "test") {
     })
 }
 
+//middleware to utilize routes
+router.use('/user', userRoutes);
 
 app.use('/api', router);
 
