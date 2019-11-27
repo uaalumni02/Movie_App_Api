@@ -41,14 +41,13 @@ Movie Data System that provides an interface for users to create, update, delete
 | EndPoint | Functionality |
 | ----------- | ----------- |
 | POST /api/user/login | Logs a user in.|
-| DELETE /api/user/ | Delete user. |
-|   GET /api/user/ |  Find matching instances of user. |
+|   GET /api/user/ |  Displays all users. |
 |  DELETE /api/user/ |  Delete user |
 |GET /api/user/| displays all users|
-|POST /api/movie/|Creates a new document instance. |
-|DELETE /api/movie|Delete document |
-|GET /api/movie| Gets all documents assined to logged in user|
-|PATCH /api/movie| Update document attributes.|
+|POST /api/movie/|Creates a new movie. |
+|DELETE /api/movie|Delete movie |
+|GET /api/movie| Gets all movies assigned to logged in user|
+|PATCH /api/movie| Update movie attributes.|
 
 
 ## Authentication Information 
