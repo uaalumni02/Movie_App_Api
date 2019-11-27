@@ -61,6 +61,15 @@ class MovieData {
       return Response.responseServerError(res);
     }
   }
+  static async getMovieById(req, res) {
+    const { id } = req.params;
+    try {
+        const movieById = await Db.getMovieById(Movie, id)
+        return Response.responseOk(res, movieById)
+    } catch (error) {
+        return Response.responseNotFound(res)
+    }
+}
 }
 
 export default MovieData;

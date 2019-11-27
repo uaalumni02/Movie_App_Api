@@ -73,6 +73,14 @@ class Db {
         throw error
       }
     }
+    static async getMovieById(model, id) {
+      try {
+        const movie = await model.findById(id)
+        return movie
+      } catch (error) {
+        throw error;
+      }
+    }
   }
   
   
