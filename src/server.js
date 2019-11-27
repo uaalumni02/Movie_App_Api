@@ -16,6 +16,7 @@ const router = express.Router();
 //import routes
 import userRoutes from './routes/user.route';
 import movieRoutes from './routes/movie.route';
+import movieRoutes2 from './routes/movie.route2';
 
 app.use(cors());
 app.use(express.json());
@@ -43,6 +44,7 @@ if (process.env.NODE_ENV == "test") {
 //middleware to utilize routes
 router.use('/user', userRoutes);
 router.use('/movie', movieRoutes);
+router.use('/movie2', movieRoutes2);
 
 app.use('/api', router);
 

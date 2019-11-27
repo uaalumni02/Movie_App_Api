@@ -15,8 +15,6 @@ const router = express.Router();
   router.route('/')
   .post(checkAuth, movieController.addMovieData)
 
-  router.route('/:userId')
-  .get(checkAuth, movieController.getAllMovies)
 
 
 
