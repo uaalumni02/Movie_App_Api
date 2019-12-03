@@ -6,6 +6,8 @@
   "scripts": {
     "test": " NODE_ENV=test mocha --require @babel/register ./tests/**/*.js --exit",
     "start:dev": "nodemon --exec babel-node src/server",
+    "postinstall": "npm run build",
+    "build": "babel src -d build",
     "start": "node build/server.js"
   },
   "keywords": [],
